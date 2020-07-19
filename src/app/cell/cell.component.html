@@ -1,0 +1,23 @@
+<div
+  (click)="onClick()"
+  [ngClass]="{
+    'isVisible': !!cell.isVisible,
+    'isNotVisible': !cell.isVisible,
+    'isClickBomb': !!cell.isVisited && !!cell.isBomb
+  }"
+  (contextmenu)="onRightClick($event)"
+>
+  <span
+    *ngIf="!!cell.isVisible && !!cell.isVisited && !cell.isFlagged && !cell.isBomb"
+  >
+    {{cell.value === 0 ? "" : cell.value}}
+  </span>
+
+  <span *ngIf="!!cell.isFlagged">
+    <i class="fas fa-flag"></i>
+  </span>
+
+  <span *ngIf="!!cell.isVisible && !!cell.isBomb && !cell.isFlagged">
+    <i class="fa fa-bomb" aria-hidden="true"></i>
+  </span>
+</div>

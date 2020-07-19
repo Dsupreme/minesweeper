@@ -1,0 +1,21 @@
+div {
+  padding: 1rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 1px solid #eee;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.isNotVisible {
+  background-color: #008000;
+}
+
+.isVisible {
+  background-color: #ccc;
+}
+
+.isClickBomb {
+  background-color: #f00;
+}

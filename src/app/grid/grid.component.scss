@@ -1,0 +1,15 @@
+.grid {
+  padding: 1rem;
+  background-color: #eee;
+  display: flex;
+  flex-direction: column;
+
+  & > div {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.game-over {
+  pointer-events: none;
+}
