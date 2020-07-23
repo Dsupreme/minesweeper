@@ -1,0 +1,13 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+.content {
+  display: flex;
+  padding: 2em;
+  flex-direction: column;
+  align-items: center;
+  & > div {
+    padding: 1em;
+  }
+}
