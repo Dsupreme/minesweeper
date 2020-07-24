@@ -57,10 +57,14 @@ const reducer = createReducer(
   }),
   on(CheckWinConditionGameAction, (state: GameState) => {
     let { isCompleted } = gameStateSvc.checkWinCondition({
+      bombCount: state.bombCount,
       isCompleted: state.isCompleted,
+      grid: state.game.grid,
     });
+
     return {
       ...state,
+      wonCount: !!isCompleted ? state.wonCount + 1 : state.wonCount,
       isCompleted: isCompleted,
     };
   })

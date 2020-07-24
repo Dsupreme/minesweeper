@@ -36,18 +36,6 @@ export class GridComponent implements OnInit {
 
   rightClick(row, col) {
     this.store.dispatch(RightClickGameAction({ row, col }));
-    this.store.dispatch(CheckWinConditionGameAction()); //this.checkWinCondition();
+    this.store.dispatch(CheckWinConditionGameAction());
   }
 }
-
-//
-
-//   reveal() {
-//     this.grid.forEach((row) => {
-//       row.forEach((ele: cellObj) => {
-//         ele.isVisible = 1;
-//         ele.value = ele.value < 0 ? 0 : ele.value;
-//       });
-//     });
-//   }
-// }
