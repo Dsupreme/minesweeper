@@ -52,8 +52,8 @@ export class GameStateService {
         cell.isVisible = 1;
 
         if (!!voluntary && !!cell.isBomb) {
-          // this.reveal();
-          // alert("Game Over");
+          this.reveal(grid);
+          setTimeout(() => alert('Game Over'), 0);
           isGameOver = true;
           return;
         }
@@ -120,25 +120,30 @@ export class GameStateService {
     }, count);
   }
 
-  checkWinCondition({ isCompleted }) {
-    //     let count = this.flagCount;
-    //     this.grid.forEach((row) => {
-    //       row.forEach((ele: cellObj) => {
-    //         console.log(ele, count);
-    //         if (ele.isFlagged && ele.isBomb) {
-    //           count--;
-    //         }
-    //       });
-    //     });
+  checkWinCondition({ bombCount, isCompleted, grid }) {
+    let count = bombCount;
+    grid.forEach((row) => {
+      row.forEach((ele: Cell) => {
+        if (ele.isFlagged && ele.isBomb) {
+          count--;
+        }
+      });
+    });
 
-    //     console.log(count);
-
-    //     if (!count) {
-    //       alert("You won");
-    //       this.isGameOver = true;
-    //     }
+    if (!count) {
+      setTimeout(() => alert('You won'), 0);
+      isCompleted = true;
+    }
     return {
       isCompleted: isCompleted,
     };
+  }
+
+  reveal(grid) {
+    grid.forEach((row) => {
+      row.forEach((ele: Cell) => {
+        if (ele.isBomb) ele.isVisible = 1;
+      });
+    });
   }
 }
